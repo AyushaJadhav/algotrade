@@ -1,0 +1,140 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Force Light Theme */
+  color-scheme: light;
+  color: #213547;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #ffffff; /* Ensures body background is white */
+  color: #213547;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f9f9f9;
+  color: #213547;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+  background-color: #f0f0f0;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Remove Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light; /* Forces light mode */
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
+.group-by-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.group-by-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+.nested-dropdown {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.dropdown-item:hover .nested-dropdown {
+  display: block;
+}
+.right-side-panel {
+  position: fixed; /* Ensure the panel is positioned relative to the viewport */
+  top: 50%;      /* Center vertically */
+  right: 0;      /* Position on the right edge */
+  transform: translateY(-50%); /* Adjust vertical position for perfect centering */
+}
+/* ... your existing CSS ... */
+
+button.add-users-button { /* Assuming you add a class "add-users-button" to the button */
+  background-color: #007bff; /* Example blue color */
+  color: white; /* Adjust text color if needed */
+}
+.clear-filter-button {
+  background-color: #f8f9fa; /* Light background color similar to the dropdown */
+  border: 1px solid #ced4da; /* Border color */
+  padding: 8px 12px; /* Adjust padding as needed */
+  font-size: 14px; /* Adjust font size as needed */
+  font-weight: 400; /* Adjust font weight as needed */
+  color: #495057; /* Adjust text color as needed */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Add pointer cursor */
+  transition: background-color 0.2s ease; /* Add transition effect */
+}
+
+.clear-filter-button:hover {
+  background-color: #e9ecef; /* Slightly darker background on hover */
+}

@@ -4,8 +4,9 @@ import passport from "passport";
 import { config } from "dotenv";
 config();
 import { connectDB } from "./config/db";
-import authRoutes from "./routes/authRoutes";
-import protectedRoutes from "./routes/protectedRoutes";
+import authRoutes from "./routes/route.auth";
+import protectedRoutes from "./routes/route.protected";
+import organizationRoutes from "./routes/route.organization";
 import "./config/passport";
 
 const app = express();
@@ -37,7 +38,9 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/organization", organizationRoutes);
 app.use("/api", protectedRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

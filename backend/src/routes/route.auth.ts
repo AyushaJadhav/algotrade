@@ -1,7 +1,6 @@
 import express, { Router, Request } from "express";
 import passport from "passport";
-import jwt from "jsonwebtoken";
-import User, { IUser } from "../models/User";
+import User, { IUser } from "../models/model.user";
 import { generateToken } from "../utils/jwt";
 
 const router: Router = express.Router();
@@ -64,6 +63,7 @@ router.post("/login", (req, res, next) => {
 
       const token = generateToken(user);
       res.json({ token, user });
+      return
     }
   )(req, res, next);
 });

@@ -1,5 +1,5 @@
 import express, { Request, Response, Router } from "express";
-import { authenticateJWT } from "../middlewares/authMiddleware";
+import { authenticateJWT } from "../middlewares/middleware.auth";
 
 const router: Router = express.Router();
 

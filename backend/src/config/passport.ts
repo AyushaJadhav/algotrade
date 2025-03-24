@@ -5,7 +5,7 @@ import {
   VerifyCallback,
 } from "passport-google-oauth20";
 import { Strategy as LocalStrategy } from "passport-local";
-import User, { IUser } from "../models/User";
+import User, { IUser } from "../models/model.user";
 
 const options: StrategyOptions = {
   clientID: process.env.GOOGLE_CLIENT_ID!,
@@ -31,22 +31,27 @@ passport.use(
         let user = await User.findOne({ email });
 
         if (!user) {
-          return done(null, false, { message: "User not found." });
+          done(null, false, { message: "User not found." });
+          return;
         }
 
         if (user.authType === "google" && !user.password) {
-          return done(null, false, {
+          done(null, false, {
             message: "User not found or password not set.",
           });
         }
 
         const isMatch = await user.comparePassword(password);
-        if (!isMatch)
-          return done(null, false, { message: "Incorrect password." });
+        if (!isMatch) {
+          done(null, false, { message: "Incorrect password." });
+          return;
+        }
 
-        return done(null, user);
+        done(null, user);
+        return;
       } catch (err) {
-        return done(err);
+        done(err);
+        return;
       }
     }
   )
@@ -67,8 +72,8 @@ passport.use(
         if (user) {
           if (!user.googleId) {
             user.googleId = profile.id;
-            user.authType = "google"; 
-            await user.save();        
+            user.authType = "google";
+            await user.save();
           }
         } else {
           user = await User.create({

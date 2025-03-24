@@ -2,12 +2,12 @@ import mongoose, { Document, Schema, Model } from "mongoose";
 import bcrypt from "bcrypt";
 
 export interface IUser extends Document {
-  googleId: string;
+  googleId?: string;
   name: string;
   email: string;
-  password: string;
+  password?: string;
   authType: "google" | "local";
-  createdAt: Date;
+  createdAt?: Date;
   comparePassword(candidatePassword: string): Promise<boolean>;
 }
 

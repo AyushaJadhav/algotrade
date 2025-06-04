@@ -1,0 +1,96 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fluent UI-inspired button styling */
+.fluent-button {
+  @apply bg-fluent-primary text-white px-4 py-2 rounded flex items-center justify-center 
+         font-medium transition-colors hover:bg-fluent-secondary focus:outline-none 
+         focus:ring-2 focus:ring-fluent-primary/50 focus:ring-offset-2;
+}
+
+.fluent-button-secondary {
+  @apply bg-white text-fluent-neutral-darker border border-fluent-neutral-dark/30 
+         hover:bg-fluent-neutral-lighter;
+}
+
+/* Fluent UI-inspired card */
+.fluent-card {
+  @apply bg-white p-6 rounded-lg shadow-fluent;
+}
+
+/* Fluent UI-inspired form inputs */
+.fluent-input {
+  @apply block w-full p-2 border border-fluent-neutral-dark/20 rounded 
+         focus:outline-none focus:ring-2 focus:ring-fluent-primary/30 bg-white;
+}
+
+/* Animation for focus transitions */
+.focus-ring-transition {
+  @apply transition duration-300 ease-in-out;
+}
+
+/* Focus styles for keyboard navigation */
+[tabindex]:focus-visible {
+  @apply outline-none ring-2 ring-fluent-primary ring-offset-2;
+}
+
+/* Typography scale based on Fluent UI */
+h1, .h1 {
+  @apply text-4xl font-bold text-fluent-neutral-darker leading-tight;
+}
+
+h2, .h2 {
+  @apply text-3xl font-bold text-fluent-neutral-darker leading-tight;
+}
+
+h3, .h3 {
+  @apply text-2xl font-bold text-fluent-neutral-darker leading-tight;
+}
+
+h4, .h4 {
+  @apply text-xl font-semibold text-fluent-neutral-darker leading-tight;
+}
+
+h5, .h5 {
+  @apply text-lg font-semibold text-fluent-neutral-darker leading-tight;
+}
+
+h6, .h6 {
+  @apply text-base font-semibold text-fluent-neutral-darker leading-tight;
+}
+
+/* Root styles */
+html {
+  @apply antialiased;
+}
+
+body {
+  @apply text-fluent-neutral-darker font-sans;
+}
+
+/* Improve focus visibility for keyboard navigation */
+:focus:not(:focus-visible) {
+  @apply outline-none;
+}
+
+:focus-visible {
+  @apply outline-none ring-2 ring-fluent-primary ring-offset-2;
+}
+
+/* Utility for visually hiding elements but keeping them accessible */
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+}
+
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Keyboard shortcut styling */
+kbd {
+  @apply px-1.5 py-0.5 text-xs bg-fluent-neutral-lighter border 
+         border-fluent-neutral-dark/20 rounded font-mono;
+}
